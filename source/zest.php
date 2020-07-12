@@ -29,6 +29,6 @@ else {
     $page = new Pages\PageNotFound();
 }
 
-include( "theme.php" );
+include( "theme/theme.php" );
 
 

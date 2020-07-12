@@ -4,7 +4,7 @@ namespace ContentTypes;
 
 require_once( "ContentType.php" );
 
-class Date extends \ContentType {
+class Text extends \ContentType {
     public function head() {
         // does nothing -- no need to print any head for this one
     }
@@ -15,7 +15,7 @@ class Date extends \ContentType {
         if( !isset($name) ) { $name = "defaultFieldName"; }
 
         ?>
-        <input type="text" class="field" id="<?php echo $name; ?>"></input>
+        <input type="text" class="field" id="<?php echo $name; ?>" placeholder="<?php echo $name; ?>"></input>
         <?php
     }
 }

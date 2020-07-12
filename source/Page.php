@@ -5,8 +5,6 @@ abstract class Page {
     public function head() {
         echo "";
     }
-    public function showInNav() {
-        return false;
-    }
+    abstract public function nav();
     abstract public function content(); 
 }

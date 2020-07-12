@@ -10,14 +10,7 @@ class Editor extends \Page {
         ?>Editor<?php
     }
 
-    public function head() {
-        $editor = new \Editor();
-        $editor->head();
-    }
-
-    public function content() {
-
-        echo "<p style='color:green;'>on editing page</p>";
+    public function nav() {
         if( isset($_GET['item']) ) { 
             $item = $_GET['item'];
         }
@@ -25,27 +18,38 @@ class Editor extends \Page {
             $item = ".";
         }
 
-        var_dump( $item );
+        $back = pathinfo($item)["dirname"];
 
-        $item = realpath( $item );
+        $link = "?page=editor&item=".urlencode($back);
 
-        $filename = basename( $item );
+        return [
+            $link => "&#8592; back to $back"
+        ];
+    }
 
-        var_dump( $filename );
+    public function head() {
+        $editor = new \Editor();
+        $editor->head();
+    }
 
-        $fragments = explode( ".", $filename );
-        if( isset( $fragments[1] ) ) {
-            $type = $fragments[1];
+    public function content() {
 
-            $editor = new \Editor();
-            $editor->editor( $item, $type );
+        if( isset($_GET['item']) ) { 
+            $item = $_GET['item'];
         }
         else {
-            // if the type of the item is not set, then it must be an item in a collection
-            $editor = new \Editor();
-            $editor->editor( $item, "item" );
+            $item = ".";
         }
-        
+
+        //var_dump( $item );
+
+        $location = realpath( $item );
+
+        $name = basename( $location );
+        echo "<p style='color:green;'>editing $name</p>";
+
+        $editor = new \Editor();
+        $editor->editor( $location );
         
     }
 }

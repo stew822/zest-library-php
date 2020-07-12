@@ -12,11 +12,11 @@ class Collection extends \ContentType {
         if( !isset($location) ) { $location = "defaultFieldName"; }
 
         $items = scandir( $location );
-        var_dump($items);
+        #var_dump($items);
         ?>
         Browsing content of collection: <?php echo $name; ?>
 
-        <table>
+        <table class="collection">
             <?php
             foreach($items as $item ) {
                 if( $item == "." || $item == ".." ) continue;

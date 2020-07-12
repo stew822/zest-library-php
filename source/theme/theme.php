@@ -10,18 +10,13 @@
 
     <!-- load custom css and javascript -->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
   </head>
   <body>
     <div id="focused">
 		<div id="nav">
             <?php
-            foreach( $pages as $key => $value ) {
-                if( $page->showInNav() ) {
-                    echo "<a href='?page=$key'>";
-                    $value->title();
-                    echo "</a>";
-                }
+            foreach( $page->nav() as $link => $text ) {
+                echo "<a href='$link'>$text</a>";
             }
             ?>
 		</div>

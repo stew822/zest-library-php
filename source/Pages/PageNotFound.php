@@ -9,6 +9,12 @@ class PageNotFound extends \Page {
         ?>Page not found<?php
     }
 
+    public function nav() {
+        return [
+            "/" => "home"
+        ];
+    }
+
     public function content() {
         ?>
         Sorry, the page you requested does not exist.
