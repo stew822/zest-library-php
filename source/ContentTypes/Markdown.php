@@ -2,7 +2,7 @@
 
 namespace ContentTypes;
 
-require_once( "source/ContentType.php" );
+require_once( "ContentType.php" );
 
 class Markdown extends \ContentType {
     public function head() {
@@ -13,16 +13,16 @@ class Markdown extends \ContentType {
         <?php
     }
 
-    public function editor( $fieldName ) {
+    public function editor(  $name, $location  ) {
 
         # this bit of code literally just removes a linting error
-        if( !isset($fieldName) ) { $fieldName = "defaultFieldName"; }
+        if( !isset($name) ) { $name = "defaultFieldName"; }
 
         ?>
-        <textarea class="field" id="<?php echo $fieldName; ?>"></textarea>
+        <textarea class="field" id="<?php echo $name; ?>"></textarea>
 		<script>
 		var easyMDE = new EasyMDE({
-			element: $('#<?php echo $fieldName; ?>')[0],
+			element: $('#<?php echo $name; ?>')[0],
 			uploadImage: true,
 			imageUploadEndpoint: "save-image.php"
 		});

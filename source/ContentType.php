@@ -1,6 +1,8 @@
 <?php
 
 abstract class ContentType {
-    abstract public function head();
-    abstract public function editor( $fieldName ); 
+    public function head() {
+        echo "";
+    }
+    abstract public function editor( $name, $location ); 
 }
