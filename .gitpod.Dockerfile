@@ -1,5 +1,8 @@
 FROM gitpod/workspace-full
 
+# optional: change document root folder. It's relative to your git working copy.
+ENV APACHE_DOCROOT_IN_REPO="www"
+
 USER gitpod
 
 RUN sudo apt-get update -q \
