@@ -1,2 +1,2 @@
-# Gitpod-PHP-Debug
-PHP debugging in Gitpod!
+# zest-library-php
+library for accessing the zest file structure in PHP
